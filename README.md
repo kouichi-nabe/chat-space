@@ -23,7 +23,6 @@
 |name|string|null: false, unique: true|
 |email|string|null: false, unique: true, add_index|
 |password|string|null: false, unique: true, add_index|
-|group_id|integer|null: false, foreign_key: true|
 
 ### Association
 - has_many :messages
@@ -36,7 +35,6 @@
 |------|----|-------|
 |id|integer|---|
 |name|string|null: false|
-|user_id|integer|null: false, foreign_key: true|
 
 ### Association
 - has_many :messages
