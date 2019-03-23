@@ -1,6 +1,17 @@
 @import "./reset";
-@import "./variable";
+@import "./config/variable";
+@import "./modules/leftContent.scss";
+@import "./modules/mainContent.scss";
+@import "./mixin/mixin1.scss";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
-/*
- *= require font-awesome
- */
+html{
+  height: 100%;
+}
+body{
+  height: 100%;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
