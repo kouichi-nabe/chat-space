@@ -1,0 +1,67 @@
+.left-content{
+  display: flex;
+  flex-direction: column;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 300px;
+  height: 100%;
+  .left-header{
+    flex: 0 0 auto;
+    margin: 0;
+    padding: 0 20px;
+    height: 100px;
+    line-height: 100px;
+    background-color: #253141;
+    &__user-name{
+      display: inline-block;
+      float: left;
+      margin: 0;
+      padding: 0;
+      font-size: 16px;
+      font-weight: bold;
+      color: #fff;
+    }
+    &__list{
+      display: inline-block;
+      float: right;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      &__item{
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        a i{
+          font-size: 16px;
+          color: #fff;
+        }
+      }
+    }
+  }
+  .group-list{
+    flex: 1 1 auto;
+    margin: 0;
+    padding: 20px 20px 0;
+    overflow: scroll;
+    background-color: #2f3e51;
+    &__item{
+      margin-bottom: 40px;
+      padding: 0;
+      &__name{
+        margin-bottom: 5px;
+        padding: 0;
+        font-size: 15px;
+        font-weight: bold;
+        color: #fff;
+      }
+      &__message{
+        margin: 0;
+        padding: 0;
+        font-size: 11px;
+        font-weight: bold;
+        color: #fff;
+      }
+    }
+  }
+}
