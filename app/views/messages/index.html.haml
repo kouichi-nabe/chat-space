@@ -1,13 +1,14 @@
 .left-content
   /user情報
   .left-header
-    %h2.left-header__user-name kouichi@nabe
+    %h2.left-header__user-name
+      = current_user.name
     %ul.left-header__list
       %li.left-header__list__item
-        %a{href: "#"}
+        = link_to do
           %i.fa.fa-edit
       %li.left-header__list__item
-        %a{href: "#"}
+        = link_to edit_user_path(current_user) do
           %i.fa.fa-cog
   /group情報
   .group-list
@@ -18,11 +19,13 @@
 .main-content
   .main-header
     %h3.main-header__group-name group1
-    %p.main-header__memder Member：kouichi@nabe
+    %p.main-header__memder
+      = "Member：#{current_user.name}"
     %a.main-header__edit-button Edit
   .message-list
     .message-list__item
-      %h2.message-list__item__user-name kouichi@nabe
+      %h2.message-list__item__user-name
+        = current_user.name
       %p.message-list__item__message-time 2019/03/19(Tue) 21:15:32
       .message-list__item__message こんにちわ
     %form.message-from
