@@ -41,7 +41,7 @@
 - has_many :groups_users
 - has_many :users, through: :groups_users
 
-## groups_users テーブル
+## group_user テーブル
 
 |Column|Type|Options|
 |------|----|-------|
