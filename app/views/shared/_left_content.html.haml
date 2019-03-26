@@ -1,0 +1,21 @@
+.left-content
+  /user情報
+  .left-header
+    %h2.left-header__user-name
+      = current_user.name
+    %ul.left-header__list
+      %li.left-header__list__item
+        = link_to new_group_path do
+          %i.fa.fa-edit
+      %li.left-header__list__item
+        = link_to edit_user_path(current_user) do
+          %i.fa.fa-cog
+  /group情報
+  .group-list
+    .group-list__item
+      - current_user.groups.each do |group|
+        = link_to group_messages_path(group) do
+          %h3.group-list__item__name
+            = group.name
+          %p.group-list__item__message
+            メッセージはまだありません。
