@@ -1,0 +1,9 @@
+.message-list__item
+  %h2.message-list__item__user-name
+    = message.user.name
+  %p.message-list__item__message-time
+    = message.created_at.strftime("%Y/%m/%d %H:%M")
+  .message-list__item__message
+    - if message.body.present?
+      %p= message.body
+    = image_tag message.image.url, class: 'message-image' if message.image.present?
