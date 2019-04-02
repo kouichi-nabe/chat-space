@@ -2,19 +2,15 @@
   .main-header
     %h3.main-header__group-name group1
     %p.main-header__memder
-      = "Member：#{current_user.name}"
+      = "Member：#{@group.show_group_member}"
     = link_to edit_group_path(@group), class: "main-header__edit-button" do
       Edit
   .message-list
-    .message-list__item
-      %h2.message-list__item__user-name
-        = current_user.name
-      %p.message-list__item__message-time 2019/03/19(Tue) 21:15:32
-      .message-list__item__message こんにちわ
-    %form.message-from
+    = render partial: 'message', collection: @messages
+    = form_for [@group, @message], html: {class: 'message-from'} do |f|
       .message-from__box
-        %input.message-from__box__text{type: "text", placeholder: "type a message", name: "text"}
-        %label.message-from__box__icon{for: "upload-icon"}
+        = f.text_field :body, class: 'message-from__box__text', placeholder: 'type a message'
+        = f.label :image, class: 'message-from__box__icon' do
           %i.fa.fa-image
-          %input.messag-from__box__icon__file{type: "file", id: "upload-icon", name: "image", style: "display:none;"}
-      %input.message-from__send{type: "submit", value: "Send"}
+          = f.file_field :image, class: 'messag-from__box__icon__file', style: 'display:none;'
+      = f.submit 'Send', class: 'message-from__send'
