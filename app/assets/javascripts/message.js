@@ -1,6 +1,15 @@
 $(function(){
   $(".message-from").on("submit", function(e){
     e.preventDefault();
-    console.log("イベント発火");
+    var formData = new FormData(this);
+
+    $.ajax({
+      type: POST,
+      url: group_messages_path(group),
+      data: formData,
+      datatype: 'json',
+      processData: false,
+      contentType: false
+    })
   })
 })
