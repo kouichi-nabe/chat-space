@@ -1,11 +1,11 @@
 $(function(){
 
-  function createBody(message){
+  function createBodyTag(message){
     if(message.body.length !== 0){
       return `<p>${message.body}</p>`
     }
   }
-  function createImage(message){
+  function createImageTag(message){
     if(messgae.image_url.length !== 0){
       return `<img class="message-image" src="${message.image_url}">`
     }
@@ -16,8 +16,8 @@ $(function(){
                   <h2 class="message-list__item__user-name">${message.name}</h2>
                   <p class="message-list__item__message-time">${time.format('YYYY/MM/DD HH:mm:ss')}</p>
                   <div class="message-list__item__message">
-                    ${createBody(message)}
-                    ${createImage(message)}
+                    ${createBodyTag(message)}
+                    ${createImageTag(message)}
                   </div>
                 </div>`
     return html
