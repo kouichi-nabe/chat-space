@@ -28,8 +28,9 @@ $(function(){
     var formData = new FormData(this);
 
     $.ajax({
-      type: POST,
-      url: group_messages_path(group),
+      type: 'POST',
+      url: 'messages',
+      cache: false,
       data: formData,
       datatype: 'json',
       processData: false,
