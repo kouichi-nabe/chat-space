@@ -38,13 +38,14 @@
   }
   .message-list{
     flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
     position: relative;
     margin: 0;
-    padding: 46px 40px 0;
-    height: calc(100% - 98px);
+    padding: 0;
+    height: calc(100% - 188px);
     background-color: #fafafa;
     border-top: solid 1px #eee;
-    overflow: scroll;
     &__item{
       margin-bottom: 40px;
       padding: 0;
@@ -71,7 +72,7 @@
       }
     }
     .message-from{
-      position: absolute;
+      flex: 0 0 auto;
       display: flex;
       flex-direction: row;
       bottom: 0;
@@ -114,5 +115,10 @@
         background-color: #38aef0;
       }
     }
+  }
+  .message-list__items{
+    flex: 1 1 auto;
+    padding: 46px 40px 0;
+    overflow: scroll;
   }
 }
