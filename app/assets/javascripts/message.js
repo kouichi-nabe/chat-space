@@ -1,12 +1,12 @@
 $(function(){
 
   function createBodyTag(message){
-    if(message.body.length !== 0){
+    if(message.body){
       return `<p>${message.body}</p>`
     }
   }
   function createImageTag(message){
-    if(messgae.image_url.length !== 0){
+    if(message.image_url){
       return `<img class="message-image" src="${message.image_url}">`
     }
   }
@@ -38,10 +38,8 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
-      var last_message = $('.message-list__item:last-child').offset().top;
-      $('.message-list__items').append(html);
-      $('html, body').animate({scrollTop:last_message});
-      $('.message-from__box__text').val('');
+      var last_message = $('.message-list__items').append(html);
+      $('.message-list__items').animate({scrollTop: $('.message-list__items')[0].scrollHeight}, 'fast');
     })
     .fail(function(){
       alert('メッセージの追加に失敗しました');
