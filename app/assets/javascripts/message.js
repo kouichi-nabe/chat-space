@@ -11,10 +11,9 @@ $(function(){
     }
   }
   function buildHTML(message){
-    var time = moment(message.created_at)
     var html = `<div class="message-list__item">
                   <h2 class="message-list__item__user-name">${message.name}</h2>
-                  <p class="message-list__item__message-time">${time.format('YYYY/MM/DD HH:mm:ss')}</p>
+                  <p class="message-list__item__message-time">${message.created_at.strftime('%Y/%m/%d %HH%:%mm%')}</p>
                   <div class="message-list__item__message">
                     ${createBodyTag(message)}
                     ${createImageTag(message)}
