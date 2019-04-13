@@ -6,7 +6,8 @@
     = link_to edit_group_path(@group), class: "main-header__edit-button" do
       Edit
   .message-list
-    = render partial: 'message', collection: @messages
+    .message-list__items
+      = render partial: 'message', collection: @messages
     = form_for [@group, @message], html: {class: 'message-from'} do |f|
       .message-from__box
         = f.text_field :body, class: 'message-from__box__text', placeholder: 'type a message'
