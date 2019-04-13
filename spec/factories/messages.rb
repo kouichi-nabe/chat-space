@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :message do
     body {Faker::Lorem.sentence}
-    image {File.open("#{Rails.root}/public/images/no_image.jpg")}
+    image {File.open("#{Rails.root}/app/assets/images/sample_image.jpg")}
     user
     group
   end

@@ -62,4 +62,4 @@ gem "font-awesome-sass"
 gem "devise"
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'momentjs-rails'
+gem 'rails-i18n', '~> 5.1'

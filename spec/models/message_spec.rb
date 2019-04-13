@@ -3,11 +3,11 @@ require 'rails_helper'
 RSpec.describe Message, type: :model do
   describe '#create' do
     context 'can save' do
-      it 'is valid with a body' do
+      it 'is valid with a image' do
         expect(build(:message, image: nil)).to be_valid
       end
 
-      it 'is valid with a image' do
+      it 'is valid with a body' do
         expect(build(:message, body: nil)).to be_valid
       end
 
