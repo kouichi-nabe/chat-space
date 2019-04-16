@@ -11,7 +11,7 @@ $(function(){
     }
   }
   function buildHTML(message){
-    var html = `<div class="message-list__item">
+    var html = `<div class="message-list__item" data-message-id="${message.id}">
                   <h2 class="message-list__item__user-name">${message.name}</h2>
                   <p class="message-list__item__message-time">${message.created_at.strftime('%Y/%m/%d %HH%:%mm%')}</p>
                   <div class="message-list__item__message">
@@ -45,4 +45,20 @@ $(function(){
       alert('メッセージの追加に失敗しました');
     })
   })
+
+  var reloadMessages = function(){
+    var last_message_id = $('message-list__item:last').data('message-id');
+    $.ajax({
+      type: 'GET',
+      url: '/groups/:group_id/api/messages(group)',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages){
+      console.log('success');
+    })
+    .fail(function(){
+      console.log('error');
+    });
+  }
 })
