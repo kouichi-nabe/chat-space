@@ -102,7 +102,7 @@ $(function(){
       messageList.animate({scrollTop: messageList[0].scrollHeight}, 'fast');
     })
     .fail(function(){
-      console.log('error');
+      alert("メッセージの自動更新に失敗しました");
     });
   }
   setInterval(reloadMessages, 5000);
