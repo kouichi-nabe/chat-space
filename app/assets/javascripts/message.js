@@ -13,7 +13,7 @@ $(function(){
   function buildHTML(message){
     var html = `<div class="message-list__item" data-message-id="${message.id}">
                   <h2 class="message-list__item__user-name">${message.name}</h2>
-                  <p class="message-list__item__message-time">${message.created_at.strftime('%Y/%m/%d %HH%:%mm%')}</p>
+                  <p class="message-list__item__message-time">${message.created_at}</p>
                   <div class="message-list__item__message">
                     ${createBodyTag(message)}
                     ${createImageTag(message)}
@@ -21,6 +21,42 @@ $(function(){
                 </div>`
     return html
   }
+
+  var buildMessageHTML = function(message){
+    if(message.body && message.image.url){
+      var html = `<div class="message-list__item" data-id=${message.id}>
+                    <h2 class="message-list__item__user-name">${message.user_name}
+                    </h2>
+                    <p class="message-list__item__message-time">${message.created_at}
+                    </p>
+                    <div class="message-list__item__message">
+                      <p>${message.body}</p>
+                      <img src="${message.image.url}" class="message-image">
+                    </div>
+                 </div>`
+    } else if (message.body) {
+      var html = `<div class="message-list__item" data-id=${message.id}>
+                    <h2 class="message-list__item__user-name">${message.user_name}
+                    </h2>
+                    <p class="message-list__item__message-time">${message.created_at}
+                    </p>
+                    <div class="message-list__item__message">
+                      <p>${message.body}</p>
+                    </div>
+                 </div>`
+    } else if (message.image.url) {
+      var html = `<div class="message-list__item" data-id=${message.id}>
+                    <h2 class="message-list__item__user-name">${message.user_name}
+                    </h2>
+                    <p class="message-list__item__message-time">${message.created_at}
+                    </p>
+                    <div class="message-list__item__message">
+                      <img src="${message.image.url}" class="message-image">
+                    </div>
+                 </div>`
+    };
+    return html;
+  };
 
   $(".message-from").on("submit", function(e){
     e.preventDefault();
@@ -37,7 +73,7 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
-      var messageList = $('.message-list__items')
+      var messageList = $('.message-list__items');
       messageList.append(html);
       messageList.animate({scrollTop: messageList[0].scrollHeight}, 'fast');
     })
@@ -47,18 +83,27 @@ $(function(){
   })
 
   var reloadMessages = function(){
-    var last_message_id = $('message-list__item:last').data('message-id');
+    var last_message_id = $('.message-list__item:last').data('message-id');
     $.ajax({
       type: 'GET',
-      url: '/groups/:group_id/api/messages(group)',
+      url: 'api/messages',
       dataType: 'json',
       data: {id: last_message_id}
     })
     .done(function(messages){
-      console.log('success');
+      console.log('ajax');
+      var messageList = $('.message-list__items');
+      var insertHTML = '';
+      messages.forEach(function(message){
+        var html = buildMessageHTML(message);
+        insertHTML += html;
+      });
+      messageList.append(insertHTML);
+      messageList.animate({scrollTop: messageList[0].scrollHeight}, 'fast');
     })
     .fail(function(){
       console.log('error');
     });
   }
-})
+  setInterval(reloadMessages, 5000);
+});
