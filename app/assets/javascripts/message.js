@@ -23,35 +23,44 @@ $(function(){
   }
 
   var buildMessageHTML = function(message){
-    if(message.body && message.image.url){
-      var html = `<div class="message-list__item" data-id=${message.id}>
-                    <h2 class="message-list__item__user-name">${message.user_name}
+    var id = message.id
+    var name = message.user_name
+    var time = message.created_at
+    var body = message.body
+    var image = message.image.url
+    if(body && image){
+      var html = `<div class="message-list__item" data-id=${id}>
+                    <h2 class="message-list__item__user-name">${name}
                     </h2>
-                    <p class="message-list__item__message-time">${message.created_at}
+                    <p class="message-list__item__message-time">${time}
                     </p>
                     <div class="message-list__item__message">
-                      <p>${message.body}</p>
-                      <img src="${message.image.url}" class="message-image">
+                      <p>${body}</p>
+                      <img src="${image}" class="message-image">
                     </div>
                  </div>`
-    } else if (message.body) {
-      var html = `<div class="message-list__item" data-id=${message.id}>
-                    <h2 class="message-list__item__user-name">${message.user_name}
+    } else if (body) {
+      var image = '';
+      var html = `<div class="message-list__item" data-id=${id}>
+                    <h2 class="message-list__item__user-name">${name}
                     </h2>
-                    <p class="message-list__item__message-time">${message.created_at}
+                    <p class="message-list__item__message-time">${time}
                     </p>
                     <div class="message-list__item__message">
-                      <p>${message.body}</p>
+                      <p>${body}</p>
+                      <img src="${image}" class="message-image">
                     </div>
                  </div>`
-    } else if (message.image.url) {
-      var html = `<div class="message-list__item" data-id=${message.id}>
-                    <h2 class="message-list__item__user-name">${message.user_name}
+    } else if (image) {
+      var body = '';
+      var html = `<div class="message-list__item" data-id=${id}>
+                    <h2 class="message-list__item__user-name">${name}
                     </h2>
-                    <p class="message-list__item__message-time">${message.created_at}
+                    <p class="message-list__item__message-time">${time}
                     </p>
                     <div class="message-list__item__message">
-                      <img src="${message.image.url}" class="message-image">
+                      <p>${body}</p>
+                      <img src="${image}" class="message-image">
                     </div>
                  </div>`
     };
