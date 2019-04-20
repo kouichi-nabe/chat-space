@@ -91,7 +91,6 @@ $(function(){
       data: {id: last_message_id}
     })
     .done(function(messages){
-      console.log('ajax');
       var messageList = $('.message-list__items');
       var insertHTML = '';
       messages.forEach(function(message){
