@@ -26,44 +26,18 @@ $(function(){
     var id = message.id
     var name = message.user_name
     var time = message.created_at
-    var body = message.body
-    var image = message.image.url
-    if(body && image){
-      var html = `<div class="message-list__item" data-id=${id}>
+    var body = message.body ? <p>${body}</p> : '';
+    var image = message.image.url ? <img src="${image}" class="message-image"> : '';
+    var html = `<div class="message-list__item" data-id=${id}>
                     <h2 class="message-list__item__user-name">${name}
                     </h2>
                     <p class="message-list__item__message-time">${time}
                     </p>
                     <div class="message-list__item__message">
-                      <p>${body}</p>
-                      <img src="${image}" class="message-image">
+                      ${body}
+                      ${image}
                     </div>
                  </div>`
-    } else if (body) {
-      var image = '';
-      var html = `<div class="message-list__item" data-id=${id}>
-                    <h2 class="message-list__item__user-name">${name}
-                    </h2>
-                    <p class="message-list__item__message-time">${time}
-                    </p>
-                    <div class="message-list__item__message">
-                      <p>${body}</p>
-                      <img src="${image}" class="message-image">
-                    </div>
-                 </div>`
-    } else if (image) {
-      var body = '';
-      var html = `<div class="message-list__item" data-id=${id}>
-                    <h2 class="message-list__item__user-name">${name}
-                    </h2>
-                    <p class="message-list__item__message-time">${time}
-                    </p>
-                    <div class="message-list__item__message">
-                      <p>${body}</p>
-                      <img src="${image}" class="message-image">
-                    </div>
-                 </div>`
-    };
     return html;
   };
 
