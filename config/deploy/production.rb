@@ -2,7 +2,7 @@ set :stage, :production
 set :rails_env, 'production'
 server '13.230.229.255', user: 'ec2-user', roles: %w{app db web}
 set :ssh_options, {
- keys: [File.expand_path('~/.ssh/kouichi-nabe.pem)')]
+ keys: [File.expand_path('~/.ssh/kouichinabe.pem)')]
 }
 # server-based syntax
 # ======================
