@@ -1,9 +1,9 @@
-set :stage, :production
-set :rails_env, 'production'
+# set :stage, :production
+# set :rails_env, 'production'
 server '13.230.229.255', user: 'ec2-user', roles: %w{app db web}
-set :ssh_options, {
- keys: [File.expand_path('~/.ssh/kouichinabe.pem)')]
-}
+# set :ssh_options, {
+#  keys: [File.expand_path('~/.ssh/chatspace.pem)')]
+# }
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
