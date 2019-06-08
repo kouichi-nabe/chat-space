@@ -26,7 +26,7 @@ $(function(){
     var id = message.id
     var name = message.user_name
     var time = message.created_at;
-    var body = message.body if message.body != null
+    var body = message.body ? <p>${body}</p> : '';
     var image = message.image.url ? <img src="${image}" class='message-image'/> : '';
     var html = `<div class="message-list__item" data-id=${id}>
                     <h2 class="message-list__item__user-name">${name}
@@ -34,7 +34,7 @@ $(function(){
                     <p class="message-list__item__message-time">${time}
                     </p>
                     <div class="message-list__item__message">
-                      <p>${body}</p>
+                      ${body}
                       ${image}
                     </div>
                  </div>`
@@ -58,8 +58,8 @@ $(function(){
       var html = buildHTML(data);
       var messageList = $('.message-list__items');
       messageList.append(html);
-      console.log("ajax");
-      messageList.animate({scrollTop: messageList[0].scrollHeight}, 'fast');
+      console.log("ajax")
+      messageList.animate({scrollTop: messageList[0]..scrollHeight}, 'fast');
     })
     .fail(function(){
       alert('メッセージの追加に失敗しました');
