@@ -59,7 +59,7 @@ $(function(){
       var messageList = $('.message-list__items');
       messageList.append(html);
       console.log("ajax");
-      messageList.animate({scrollTop: messageList[0]..scrollHeight}, 'fast');
+      messageList.animate({scrollTop: messageList[0].scrollHeight}, 'fast');
     })
     .fail(function(){
       alert('メッセージの追加に失敗しました');
