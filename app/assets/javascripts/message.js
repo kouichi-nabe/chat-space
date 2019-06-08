@@ -58,7 +58,7 @@ $(function(){
       var html = buildHTML(data);
       var messageList = $('.message-list__items');
       messageList.append(html);
-      messageList.animate({scrollTop: $('.message-list__item')[0].scrollHeight}, 'fast');
+      messageList.animate({scrollTop: messageList[0].scrollHeight}, 'fast');
     })
     .fail(function(){
       alert('メッセージの追加に失敗しました');
