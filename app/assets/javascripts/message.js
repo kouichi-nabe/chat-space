@@ -58,6 +58,7 @@ $(function(){
       var html = buildHTML(data);
       var messageList = $('.message-list__items');
       messageList.append(html);
+      console.log("ajax")
       messageList.animate({scrollTop: messageList[0]..scrollHeight}, 'fast');
     })
     .fail(function(){
