@@ -64,6 +64,7 @@ $(function(){
   $(".message-from").on("submit", function(e){
     e.preventDefault();
     var formData = new FormData(this);
+    console.log(formData)
 
     $.ajax({
       type: 'POST',
