@@ -17,6 +17,7 @@ module ChatSpace
     config.i18n.default_locale = :ja
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
     config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
+    config.action_view.automatically_disable_submit_tag = false
   end
   Time::DATE_FORMATS[:default] = '%Y/%m/%d %H:%M'
 end

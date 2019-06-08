@@ -78,7 +78,7 @@ $(function(){
       var html = buildHTML(data);
       var messageList = $('.message-list__items');
       messageList.append(html);
-      console.log('ajax')
+      console.log("ajax");
       messageList.animate({scrollTop: messageList[0].scrollHeight}, 'fast');
     })
     .fail(function(){
@@ -108,5 +108,5 @@ $(function(){
       alert("メッセージの自動更新に失敗しました");
     });
   }
-  // setInterval(reloadMessages, 5000);
+  setInterval(reloadMessages, 5000);
 });
