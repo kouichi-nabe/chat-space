@@ -68,7 +68,7 @@ $(function(){
 
     $.ajax({
       type: 'POST',
-      url: url,
+      url: 'messages',
       cache: false,
       data: formData,
       datatype: 'json',
