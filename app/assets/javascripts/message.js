@@ -25,9 +25,9 @@ $(function(){
   var buildMessageHTML = function(message){
     var id = message.id
     var name = message.user_name
-    var time = message.created_at
+    var time = message.created_at;
     var body = message.body ? <p>${body}</p> : '';
-    var image = message.image.url ? <img src="${image}" class="message-image"> : '';
+    var image = message.image.url ? <img src="${image}" class='message-image'/> : '';
     var html = `<div class="message-list__item" data-id=${id}>
                     <h2 class="message-list__item__user-name">${name}
                     </h2>
