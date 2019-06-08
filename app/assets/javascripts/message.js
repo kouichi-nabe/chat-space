@@ -64,7 +64,6 @@ $(function(){
   $(".message-from").on("submit", function(e){
     e.preventDefault();
     var formData = new FormData(this);
-    console.log(formData)
 
     $.ajax({
       type: 'POST',
@@ -79,6 +78,7 @@ $(function(){
       var html = buildHTML(data);
       var messageList = $('.message-list__items');
       messageList.append(html);
+      console.log('ajax')
       messageList.animate({scrollTop: messageList[0].scrollHeight}, 'fast');
     })
     .fail(function(){
